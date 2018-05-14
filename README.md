@@ -1,3 +1,26 @@
+## robotnik_sensors (kinetic) - 1.1.2-0
+
+The packages in the `robotnik_sensors` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release robotnik_sensors --track kinetic --ros-distro kinetic` on `Mon, 14 May 2018 14:03:48 -0000`
+
+The `robotnik_sensors` package was released.
+
+Version of package(s) in repository `robotnik_sensors`:
+
+- upstream repository: https://github.com/RobotnikAutomation/robotnik_sensors.git
+- release repository: https://github.com/RobotnikAutomation/robotnik_sensors-release.git
+- rosdistro version: `1.1.1-0`
+- old version: `1.1.1-0`
+- new version: `1.1.2-0`
+
+Versions of tools used:
+
+- bloom version: `0.6.4`
+- catkin_pkg version: `0.4.1`
+- rosdep version: `0.12.2`
+- rosdistro version: `0.6.8`
+- vcstools version: `0.1.40`
+
+
 ## robotnik_sensors (kinetic) - 1.1.1-0
 
 The packages in the `robotnik_sensors` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release --rosdistro kinetic --track kinetic robotnik_sensors` on `Fri, 16 Dec 2016 10:38:15 -0000`
