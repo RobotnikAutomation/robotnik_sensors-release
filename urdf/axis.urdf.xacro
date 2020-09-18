@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="sensor_axis">
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="sensor_axis">
   <xacro:property name="ptz_joint_effort_limit" value="100.0"/>
   <xacro:property name="ptz_joint_velocity_limit" value="100.0"/>
   <xacro:property name="ptz_joint_friction" value="0.1"/>
   <xacro:property name="ptz_joint_damping" value="0.1"/>
   <xacro:property name="ptz_mechanical_reduction" value="1.0"/>
-  <xacro:macro name="sensor_axis" params="prefix parent *origin">
+  <xacro:macro name="sensor_axis" params="prefix parent *origin far:=^|8.0 near:=^|0.05">
     <joint name="${prefix}_joint" type="fixed">
       <axis xyz="0 1 0"/>
       <xacro:insert_block name="origin"/>
@@ -43,7 +43,7 @@
       <!-- check the displacement -->
       <parent link="${prefix}_base_link"/>
       <child link="${prefix}_pan_link"/>
-      <limit effort="${ptz_joint_effort_limit}" velocity="${ptz_joint_velocity_limit}" lower="-3.1416" upper="3.1416"/>
+      <limit effort="${ptz_joint_effort_limit}" velocity="${ptz_joint_velocity_limit}" lower="-3.1415" upper="3.1415"/>
       <joint_properties damping="${ptz_joint_damping}" friction="{ptz_joint_friction}"/>
     </joint>
     <link name="${prefix}_pan_link">
@@ -56,10 +56,10 @@
     <transmission name="${prefix}_pan_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${prefix}_pan_joint">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       </joint>
       <actuator name="pan_motor">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
         <mechanicalReduction>${ptz_mechanical_reduction}</mechanicalReduction>
       </actuator>
     </transmission>
@@ -81,10 +81,10 @@
     <transmission name="${prefix}_tilt_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${prefix}_tilt_joint">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       </joint>
       <actuator name="tilt_motor">
-        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
         <mechanicalReduction>${ptz_mechanical_reduction}</mechanicalReduction>
       </actuator>
     </transmission>
@@ -119,10 +119,10 @@
     <!-- Axis sensor for simulation -->
     <sensor_axis_gazebo/>
   </xacro:macro>
-  
-    
-    
-    
+
+
+
+
   <xacro:macro name="sensor_axis_gazebo">
     <gazebo reference="${prefix}_frame_link">
       <sensor type="camera" name="${prefix}_sensor">
@@ -135,8 +135,8 @@
             <height>480</height>
           </image>
           <clip>
-            <near>0.05</near>
-            <far>8.0</far>
+            <near>${near}</near>
+            <far>${far}</far>
           </clip>
         </camera>
         <plugin name="${prefix}_controller" filename="libgazebo_ros_camera.so">
@@ -156,5 +156,5 @@
       </sensor>
     </gazebo>
   </xacro:macro>
-  
+
 </robot>
