@@ -1,3 +1,26 @@
+## robotnik_sensors (melodic) - 1.12.0-3
+
+The packages in the `robotnik_sensors` repository were released into the `melodic` distro by running `/usr/bin/bloom-release --rosdistro melodic --track melodic robotnik_sensors --edit` on `Tue, 22 Sep 2020 20:00:31 -0000`
+
+The `robotnik_sensors` package was released.
+
+Version of package(s) in repository `robotnik_sensors`:
+
+- upstream repository: https://github.com/RobotnikAutomation/robotnik_sensors.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `1.12.0-2`
+- new version: `1.12.0-3`
+
+Versions of tools used:
+
+- bloom version: `0.9.8`
+- catkin_pkg version: `0.4.22`
+- rosdep version: `0.19.0`
+- rosdistro version: `0.8.2`
+- vcstools version: `0.1.42`
+
+
 ## robotnik_sensors (melodic) - 1.12.0-2
 
 The packages in the `robotnik_sensors` repository were released into the `melodic` distro by running `/usr/bin/bloom-release --rosdistro melodic --track melodic robotnik_sensors --edit` on `Tue, 22 Sep 2020 19:56:48 -0000`
